@@ -1,14 +1,14 @@
 "use strict";
 
-const dbConn = require("../db/dbConn");
+const dbConn = require("../db/DbConn");
 const pgClient = dbConn();
-const postgresUserRepo = require("../db/postgres_user_repo");
-const postgresInviteRepo = require("../db/postgres_invite_repo");
-postgresUserRepo.setPgClient(pgClient);
+const postgresInviteRepo = require("../db/PostgresInviteRepo");
+const postgresUserRepo = require("../db/PostgresUserRepo");
 postgresInviteRepo.setPgClient(pgClient);
-const inviteUseCases = require("../usecase/invite_use_cases");
-inviteUseCases.setUserRepo(postgresUserRepo);
+postgresUserRepo.setPgClient(pgClient);
+const inviteUseCases = require("../usecase/InviteUseCases");
 inviteUseCases.setInviteRepo(postgresInviteRepo);
+inviteUseCases.setUserRepo(postgresUserRepo);
 
 module.exports = function (app) {
 

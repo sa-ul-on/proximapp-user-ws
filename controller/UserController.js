@@ -1,10 +1,10 @@
 "use strict";
 
-const dbConn = require("../db/dbConn");
+const dbConn = require("../db/DbConn");
 const pgClient = dbConn();
-const postgresUserRepo = require("../db/postgres_user_repo");
+const postgresUserRepo = require("../db/PostgresUserRepo");
 postgresUserRepo.setPgClient(pgClient);
-const userUseCases = require("../usecase/user_use_cases");
+const userUseCases = require("../usecase/UserUseCases");
 userUseCases.setUserRepo(postgresUserRepo);
 
 module.exports = function (app) {
