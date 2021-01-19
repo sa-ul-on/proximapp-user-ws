@@ -1,6 +1,6 @@
 function Invite() {
 	this.id = 0;
-	this.email = "";
+	this.email = '';
 	this.roles = [];
 	this.companyId = 0;
 }

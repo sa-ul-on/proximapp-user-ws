@@ -1,4 +1,4 @@
-const Company = require("../entity/Company");
+const Company = require('../entity/Company');
 
 module.exports = {
 	setCompanyRepo: function (companyRepo) {

@@ -1,6 +1,6 @@
-const hashing = require("../utils/hashing");
-const Invite = require("../entity/Invite");
-const User = require("../entity/User");
+const hashing = require('../utils/hashing');
+const Invite = require('../entity/Invite');
+const User = require('../entity/User');
 
 module.exports = {
 	setUserRepo: function (userRepo) {

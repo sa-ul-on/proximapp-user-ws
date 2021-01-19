@@ -1,26 +1,26 @@
 const assert = require('assert');
-const hashing = require("../utils/hashing");
+const hashing = require('../utils/hashing');
 
-const dbConn = require("../db/DbConn");
+const dbConn = require('../db/DbConn');
 const pgClient = dbConn();
-const postgresCompanyRepo = require("../db/PostgresCompanyRepo");
-const postgresInviteRepo = require("../db/PostgresInviteRepo");
-const postgresUserRepo = require("../db/PostgresUserRepo");
+const postgresCompanyRepo = require('../db/PostgresCompanyRepo');
+const postgresInviteRepo = require('../db/PostgresInviteRepo');
+const postgresUserRepo = require('../db/PostgresUserRepo');
 postgresCompanyRepo.setPgClient(pgClient);
 postgresInviteRepo.setPgClient(pgClient);
 postgresUserRepo.setPgClient(pgClient);
-const companyUseCases = require("../usecase/CompanyUseCases");
+const companyUseCases = require('../usecase/CompanyUseCases');
 companyUseCases.setCompanyRepo(postgresCompanyRepo);
-const inviteUseCases = require("../usecase/InviteUseCases");
+const inviteUseCases = require('../usecase/InviteUseCases');
 inviteUseCases.setInviteRepo(postgresInviteRepo);
 inviteUseCases.setUserRepo(postgresUserRepo);
-const userUseCases = require("../usecase/UserUseCases");
+const userUseCases = require('../usecase/UserUseCases');
 userUseCases.setUserRepo(postgresUserRepo);
 
-describe("test1", function () {
-	it("test1.1", async function () {
+describe('test1', function () {
+	it('test1.1', async function () {
 		// Company creation
-		const c1 = {name: "Company #1", address: "C#1 address"};
+		const c1 = {name: 'Company #1', address: 'C#1 address'};
 		const company = await companyUseCases.createCompany(c1.name, c1.address);
 		assert.notEqual(company, null);
 		assert.equal(company.name, c1.name);
